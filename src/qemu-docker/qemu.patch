@@ -1,0 +1,28 @@
+diff --git a/tests/docker/Makefile.include b/tests/docker/Makefile.include
+index 02ec92830b..f9c3013062 100644
+--- a/tests/docker/Makefile.include
++++ b/tests/docker/Makefile.include
+@@ -133,6 +133,7 @@ docker-image-debian-riscv64-cross: docker-image-debian10
+ docker-image-debian-s390x-cross: docker-image-debian10
+ docker-image-debian-sh4-cross: docker-image-debian10
+ docker-image-debian-sparc64-cross: docker-image-debian10
++docker-image-debian-hexagon-cross: docker-image-debian10
+ 
+ docker-image-travis: NOUSER=1
+ 
+diff --git a/tests/docker/dockerfiles/debian-hexagon-cross.docker b/tests/docker/dockerfiles/debian-hexagon-cross.docker
+index 2b8d7dfe26..ac53d6c908 100644
+--- a/tests/docker/dockerfiles/debian-hexagon-cross.docker
++++ b/tests/docker/dockerfiles/debian-hexagon-cross.docker
+@@ -1,7 +1,10 @@
+-FROM debian:10
++FROM qemu/debian10
+ 
+ RUN apt update && \
+     DEBIAN_FRONTEND=noninteractive \
++    apt build-dep -yy qemu
++
++RUN DEBIAN_FRONTEND=noninteractive \
+     apt install -y --no-install-recommends \
+         ca-certificates build-essential cmake clang lld ninja-build \
+ 	flex bison pkg-config wget python3 rsync

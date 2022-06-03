@@ -1,0 +1,1 @@
+These files are from [Comsecuris/qemu-hexagon](https://github.com/Comsecuris/qemu-hexagon/tree/master/target/hexagon/generator).

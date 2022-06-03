@@ -1,0 +1,6 @@
+[submodule "qemu"]
+	path = src/qemu-docker/qemu
+	url = git@github.com:quic/qemu.git
+[submodule "emilator"]
+	path = src/emilator
+	url = git@github.com:hyunsikjeong/emilator.git
